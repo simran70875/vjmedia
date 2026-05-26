@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VJ Studio — Haute Couture Digital Engineering</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* Hide native cursor for custom interactive cursor array */
+    html,
+    body,
+    a,
+    button,
+    select,
+    textarea,
+    input,
+    [role="button"] {
+      cursor: none !important;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #030303;
+      color: #fff;
+      perspective: 1000px;
+    }
+
+    /* PREMIUM INTERACTIVE CUSTOM CURSOR ENGINE */
+    .custom-cursor-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #030303;
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      will-change: transform;
+      transform: translate(-50%, -50%);
+    }
+
+    .custom-cursor-ring {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(3, 3, 3, 0.4);
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      will-change: transform, width, height, background-color, border-color;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s, border-color 0.3s;
+    }
+
+    /* Vertical Text Marquee Effects */
+    .vertical-marquee {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    /* Ultra-Premium Structural Glass Cards */
+    .premium-glass {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.002) 100%);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    /* Kinetic Marquee Engine */
+    @keyframes infiniteScroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: infiniteScroll 30s linear infinite;
+    }
+
+    /* Minimalist Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #030303;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f4a261;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen overflow-x-hidden antialiased select-none">
+
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <section class="p-4 md:p-6 min-h-screen w-full flex items-center justify-center bg-[#030303]">
+    <div
+      class="relative w-full min-h-[90vh] rounded-[40px] bg-[#f4a261] overflow-hidden text-black flex flex-col justify-between p-6 md:p-12">
+
+      <div class="w-full flex justify-between items-center z-20">
+        <div class="bg-white px-4 py-3 rounded-full flex items-center justify-center shadow-sm">
+          <span class="font-extrabold text-xl tracking-tighter text-black flex items-center gap-1">
+            <span class="w-6 h-6 rounded-full bg-[#e76f51] flex items-center justify-center text-white text-xs"><i
+                class="fa-solid fa-compass"></i></span>
+            VJ Studio
+          </span>
+        </div>
+
+        <div
+          class="hidden sm:flex absolute left-1/2 -translate-x-1/2 top-0 bg-black text-white px-6 py-2.5 rounded-b-2xl text-xs font-medium items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Available for New Projects
+        </div>
+
+        <div class="bg-white p-1.5 rounded-2xl flex items-center gap-4 shadow-sm">
+          <button class="w-8 h-8 flex flex-col justify-center items-center gap-1.5 px-2 group" aria-label="Menu">
+            <span class="w-5 h-[2px] bg-black group-hover:w-4 transition-all"></span>
+            <span class="w-5 h-[2px] bg-black"></span>
+          </button>
+          <a href="#contact"
+            class="bg-[#e76f51] text-white px-5 py-2.5 rounded-xl text-xs font-bold hover:bg-black transition-colors"
+            data-magnetic>
+            Get started
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end relative w-full mt-12 lg:mt-0 z-10">
+
+        <div
+          class="lg:col-span-6 flex items-stretch gap-0 min-h-[450px] lg:min-h-[550px] rounded-[32px] overflow-hidden bg-black/5">
+
+          <div
+            class="w-12 md:w-16 bg-black text-white flex flex-col justify-between items-center py-8 text-[10px] tracking-[0.3em] font-bold border-r border-white/10 uppercase vertical-marquee">
+            <div class="opacity-40 flex items-center gap-2">VJ STUDIO <i
+                class="fa-solid fa-asterisk text-[6px] text-[#e76f51]"></i></div>
+            <div class="flex items-center gap-4 py-4 whitespace-nowrap">
+              <span>Web Design</span> <span class="text-[#e76f51] font-black">*</span>
+              <span>Web Development</span> <span class="text-[#e76f51] font-black">*</span>
+              <span>SEO</span> <span class="text-[#e76f51] font-black">*</span>
+              <span>Digital Marketing</span>
+            </div>
+          </div>
+
+          <div
+            class="w-16 md:w-24 bg-gradient-to-b from-black/40 to-black/90 text-white/20 flex items-center justify-center font-black text-3xl md:text-5xl vertical-marquee tracking-widest select-none border-r border-white/5">
+            ©2026-Studio
+          </div>
+
+          <div class="flex-1 relative bg-zinc-900 group">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"
+              alt="Bespoke Layout Visual"
+              class="w-full h-full object-cover grayscale brightness-90 group-hover:scale-105 transition-transform duration-700">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
+              <div class="text-[9px] tracking-widest uppercase text-[#f4a261] font-bold mb-1">Aesthetic Workspace System
+              </div>
+              <div class="text-sm font-bold uppercase tracking-tight opacity-80">The Core Engine Layer</div>
+            </div>
+            <div
+              class="absolute inset-0 bg-[radial-gradient(rgba(34,197,94,0.15)_1px,transparent_1px)] [background-size:16px_16px] pointer-events:none">
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="lg:col-span-6 flex flex-col justify-between items-start lg:items-end lg:text-right space-y-12 h-full lg:pb-6">
+
+          <p class="text-black/80 text-sm md:text-base max-w-sm font-medium leading-relaxed lg:ml-auto">
+            We craft smart digital business experiences that accelerate growth and boost conversions.
+          </p>
+
+          <div class="w-full">
+            <h1 class="text-6xl sm:text-7xl xl:text-8xl font-bold tracking-tight text-black leading-[0.85] uppercase">
+              High-quality<br>
+              <span class="font-black">Work</span>
+            </h1>
+            <div class="flex items-center gap-2 justify-start lg:justify-end mt-4 text-black">
+              <span class="text-xl font-bold tracking-tight italic opacity-90">Guaranteed</span>
+              <span
+                class="w-6 h-6 rounded-full bg-[#e76f51] flex items-center justify-center text-white text-[10px] shadow-sm"><i
+                  class="fa-solid fa-check"></i></span>
+            </div>
+          </div>
+
+          <div
+            class="w-full max-w-sm bg-white/40 backdrop-blur-xl border border-white/60 p-6 rounded-[32px] text-left shadow-lg flex flex-col gap-4">
+            <div>
+              <h4 class="text-xs font-bold uppercase tracking-wider text-black/50 mb-1">Need team assistance?</h4>
+              <p class="text-sm font-bold text-black">Book a personalized strategy call</p>
+            </div>
+
+            <a href="#contact"
+              class="w-full bg-black hover:bg-[#e76f51] text-white p-3 rounded-2xl flex items-center justify-between text-xs font-bold transition-colors group">
+              <span>Schedule a call</span>
+              <span
+                class="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center text-white group-hover:translate-x-1 transition-transform"><i
+                  class="fa-solid fa-arrow-right-long"></i></span>
+            </a>
+
+            <div class="text-[11px] text-black/60 font-medium">
+              or email us at <a href="mailto:hello@vjstudio.dev"
+                class="text-black font-bold underline hover:text-[#e76f51]">hello@vjstudio.dev</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clients"
+    class="relative z-10 py-16 border-b border-white/5 bg-zinc-950/20 backdrop-blur-sm overflow-hidden scroll-scrub-fade">
+    <div
+      class="marquee-track gap-16 md:gap-32 text-2xl md:text-4xl font-black tracking-[0.25em] text-white/10 select-none">
+      <span>MICROSOFT</span><span>AMAZON</span><span>GOOGLE</span><span>ADOBE</span><span>UBER</span>
+      <span>MICROSOFT</span><span>AMAZON</span><span>GOOGLE</span><span>ADOBE</span><span>UBER</span>
+    </div>
+  </section>
+
+  <section id="about"
+    class="relative z-10 container mx-auto px-8 py-32 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    <div class="lg:col-span-6 space-y-6">
+      <div class="text-xs font-bold text-[#f4a261] uppercase tracking-widest">Capabilities Outline</div>
+      <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight">
+        A premium group built to outpace baseline web design.
+      </h2>
+      <p class="text-gray-400 text-sm font-light leading-relaxed">
+        We bypass cookie-cutter systems. Our execution patterns anchor raw aesthetic identity directly onto fully
+        functional Next-Gen server architectures.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+        <div class="p-6 premium-glass rounded-2xl">
+          <div class="text-white font-bold text-sm uppercase tracking-wide mb-1">Our Blueprint</div>
+          <div class="text-gray-400 text-xs font-light leading-relaxed">To scale digital operational speed through
+            rigorous testing frameworks and fine visual grids.</div>
+        </div>
+        <div class="p-6 premium-glass rounded-2xl">
+          <div class="text-white font-bold text-sm uppercase tracking-wide mb-1">Our Deployment</div>
+          <div class="text-gray-400 text-xs font-light leading-relaxed">Clean repository tracking channels paired with
+            transparent code velocity updates twice weekly.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-6 grid grid-cols-2 gap-4 relative" id="metric-grid">
+      <div class="space-y-4">
+        <div class="premium-glass rounded-3xl p-8 text-center scroll-lift">
+          <div class="text-5xl font-black text-[#f4a261] tracking-tight" data-count="5">0</div>
+          <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mt-2">Years Active Scalability</div>
+        </div>
+        <div class="premium-glass rounded-3xl p-8 text-center scroll-lift">
+          <div class="text-5xl font-black text-amber-400 tracking-tight" data-count="99">0</div>
+          <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mt-2">Client Success Standard</div>
+        </div>
+      </div>
+      <div class="space-y-4 pt-10">
+        <div class="premium-glass rounded-3xl p-8 text-center scroll-lift">
+          <div class="text-5xl font-black text-purple-400 tracking-tight" data-count="45">0</div>
+          <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mt-2">Environments Deployed</div>
+        </div>
+        <div class="premium-glass rounded-3xl p-8 text-center scroll-lift">
+          <div class="text-5xl font-black text-emerald-400 tracking-tight">24/7</div>
+          <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mt-2">Live Vector Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="relative border-t border-b border-white/5 overflow-hidden py-32">
+    <div class="relative z-10 container mx-auto px-8 w-full">
+      <div class="mb-20 max-w-xl">
+        <div class="text-xs font-bold text-[#f4a261] uppercase tracking-widest mb-2">Architectural Sprints</div>
+        <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
+          Bespoke capabilities built for uncompromised growth.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="service-grid">
+        <div class="premium-glass rounded-[24px] p-6 group flex flex-col justify-between" data-tilt-card>
+          <div class="space-y-6">
+            <div
+              class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-lg text-orange-400 group-hover:bg-orange-500 group-hover:text-black transition-all duration-300">
+              <i class="fa-solid fa-compass-drafting"></i>
+            </div>
+            <h3 class="text-lg font-bold uppercase tracking-tight text-white">Premium UI/UX Map</h3>
+            <p class="text-gray-400 text-xs font-light leading-relaxed">Bespoke dynamic prototypes, luxury brand
+              vectors, component logic layout, and conversion mapping blueprints.</p>
+          </div>
+          <div class="mt-12 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="text-gray-500">From $2.5k</span>
+            <span class="text-orange-400 font-bold group-hover:translate-x-1 transition-transform">Inquire <i
+                class="fa-solid fa-chevron-right text-[7px] ml-1"></i></span>
+          </div>
+        </div>
+        <div class="premium-glass rounded-[24px] p-6 group flex flex-col justify-between" data-tilt-card>
+          <div class="space-y-6">
+            <div
+              class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-lg text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3 class="text-lg font-bold uppercase tracking-tight text-white">Full-Stack React</h3>
+            <p class="text-gray-400 text-xs font-light leading-relaxed">Highly optimal Next.js architecture arrays
+              mapped precisely to ensure pure flawless Core Web Vital speeds.</p>
+          </div>
+          <div class="mt-12 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="text-gray-500">From $4.5k</span>
+            <span class="text-amber-400 font-bold group-hover:translate-x-1 transition-transform">Inquire <i
+                class="fa-solid fa-chevron-right text-[7px] ml-1"></i></span>
+          </div>
+        </div>
+        <div class="premium-glass rounded-[24px] p-6 group flex flex-col justify-between" data-tilt-card>
+          <div class="space-y-6">
+            <div
+              class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-lg text-purple-400 group-hover:bg-purple-500 group-hover:text-black transition-all duration-300">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <h3 class="text-lg font-bold uppercase tracking-tight text-white">Cloud Pipelines</h3>
+            <p class="text-gray-400 text-xs font-light leading-relaxed">Bespoke distributed node servers, strict
+              SQL/NoSQL architectures, and deep cloud orchestration platforms.</p>
+          </div>
+          <div class="mt-12 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="text-gray-500">From $6.0k</span>
+            <span class="text-purple-400 font-bold group-hover:translate-x-1 transition-transform">Inquire <i
+                class="fa-solid fa-chevron-right text-[7px] ml-1"></i></span>
+          </div>
+        </div>
+        <div class="premium-glass rounded-[24px] p-6 group flex flex-col justify-between" data-tilt-card>
+          <div class="space-y-6">
+            <div
+              class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black transition-all duration-300">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="text-lg font-bold uppercase tracking-tight text-white">SEO Authority</h3>
+            <p class="text-gray-400 text-xs font-light leading-relaxed">Granular index data monitoring, analytical user
+              event tracking maps, and intense competitive growth layouts.</p>
+          </div>
+          <div class="mt-12 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="text-gray-500">Custom Retainer</span>
+            <span class="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">Inquire <i
+                class="fa-solid fa-chevron-right text-[7px] ml-1"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="relative z-10 container mx-auto px-8 py-32">
+    <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <div class="text-xs font-bold text-[#f4a261] uppercase tracking-widest mb-2">Selected Inventories</div>
+        <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">Digital System Deployments
+        </h2>
+      </div>
+      <p class="text-gray-400 text-sm max-w-xs font-light leading-relaxed">An overview of fully live custom software
+        systems produced entirely by VJ Studio.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="project-grid">
+      <div class="group project-card">
+        <div class="w-full aspect-video rounded-[24px] overflow-hidden relative premium-glass p-3">
+          <div class="w-full h-full rounded-[16px] overflow-hidden bg-zinc-950 relative border border-white/5">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+              alt="Fintech Interface"
+              class="w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+            <div
+              class="absolute top-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[9px] font-bold uppercase tracking-wider text-orange-400">
+              Next.js & Serverless</div>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-between items-start px-2">
+          <div class="space-y-1">
+            <h3
+              class="text-xl font-bold uppercase tracking-tight text-white group-hover:text-orange-500 transition-colors">
+              Quantum Asset Dashboard</h3>
+            <p class="text-gray-400 text-xs font-light">Low-latency live analytics tracking map deployed globally.</p>
+          </div>
+          <div class="text-right">
+            <div class="text-sm font-bold text-white">+34%</div>
+            <div class="text-[8px] uppercase tracking-widest text-gray-500 font-bold">Conversion Speed</div>
+          </div>
+        </div>
+      </div>
+      <div class="group project-card">
+        <div class="w-full aspect-video rounded-[24px] overflow-hidden relative premium-glass p-3">
+          <div class="w-full h-full rounded-[16px] overflow-hidden bg-zinc-950 relative border border-white/5">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+              alt="E-commerce Interface"
+              class="w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+            <div
+              class="absolute top-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[9px] font-bold uppercase tracking-wider text-orange-400">
+              React & Redis Cache</div>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-between items-start px-2">
+          <div class="space-y-1">
+            <h3
+              class="text-xl font-bold uppercase tracking-tight text-white group-hover:text-orange-500 transition-colors">
+              Aura Luxury Storefront</h3>
+            <p class="text-gray-400 text-xs font-light">Intricate structural user flow optimizations for scaling
+              checkout rates.</p>
+          </div>
+          <div class="text-right">
+            <div class="text-sm font-bold text-white">0.4s</div>
+            <div class="text-[8px] uppercase tracking-widest text-gray-500 font-bold">Global Load Margin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="relative border-t border-white/5 overflow-hidden">
+    <div class="relative z-10 container mx-auto px-8 py-32 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <div class="lg:col-span-5 space-y-6">
+          <div class="text-xs font-bold text-[#f4a261] uppercase tracking-widest">Connect Gateway</div>
+          <h2 class="text-4xl font-black uppercase tracking-tighter text-white">Let's craft the unexpected.</h2>
+          <p class="text-gray-400 text-sm font-light leading-relaxed">
+            Encountering rigid performance boundaries or structural design limits? Submit your strategy parameters and
+            an engineer will reply within 12 hours.
+          </p>
+          <div class="space-y-4 pt-4 text-xs font-semibold text-gray-400">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400 text-sm">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <span>hello@vjstudio.dev</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400 text-sm">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <span>Distributed Global Execution Matrix</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 premium-glass rounded-[32px] p-8 md:p-10">
+          <form id="contact-form" class="space-y-6"
+            onsubmit="event.preventDefault(); alert('Strategy vectors logged successfully by VJ Studio!');">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Full Signature
+                  Identity</label>
+                <input type="text" placeholder="Simran Kaur" required
+                  class="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-xs text-white focus:outline-none focus:border-orange-500 transition-colors">
+              </div>
+              <div class="space-y-2">
+                <label class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Secure Contact
+                  Gateway</label>
+                <input type="email" placeholder="simran@example.com" required
+                  class="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-xs text-white focus:outline-none focus:border-orange-500 transition-colors">
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Target Scale Focus</label>
+              <select
+                class="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-xs text-gray-400 focus:outline-none focus:border-orange-500 transition-colors">
+                <option>Premium System Design Architecture</option>
+                <option>Full-Stack React Component Scaling</option>
+                <option>Enterprise Cloud Infrastructure Transition</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Operational Bottlenecks
+                Outline</label>
+              <textarea rows="4" placeholder="Detail any critical visual frame drops or back-end network limits..."
+                required
+                class="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-xs text-white focus:outline-none focus:border-orange-500 transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full py-4 bg-white text-black font-extrabold text-xs uppercase tracking-widest rounded-xl hover:bg-orange-500 hover:text-black transition-colors duration-300 shadow-xl shadow-white/5">
+              Dispatch System Intent <i class="fa-solid fa-paper-plane ml-2 text-[9px]"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="relative z-10 border-t border-white/5 bg-[#030303] text-gray-500 text-xs py-16">
+    <div class="container mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="space-y-4">
+        <div class="text-base font-extrabold text-white tracking-tighter">VJ Studio</div>
+        <p class="text-gray-400 font-light leading-relaxed">High-caliber platform engineering, unique aesthetics, and
+          technical scaling vectors built explicitly for digital market leaders.</p>
+      </div>
+      <div class="space-y-3">
+        <div class="font-bold text-white uppercase text-[10px] tracking-wider">Solutions</div>
+        <ul class="space-y-2 font-light">
+          <li><a href="#services" class="hover:text-white transition-colors">UI/UX Identity Systems</a></li>
+          <li><a href="#services" class="hover:text-white transition-colors">React Scaling Arrays</a></li>
+          <li><a href="#services" class="hover:text-white transition-colors">Cloud Optimization</a></li>
+        </ul>
+      </div>
+      <div class="space-y-3">
+        <div class="font-bold text-white uppercase text-[10px] tracking-wider">Collective</div>
+        <ul class="space-y-2 font-light">
+          <li><a href="#projects" class="hover:text-white transition-colors">Case Portfolios</a></li>
+          <li><a href="#about" class="hover:text-white transition-colors">Privacy Framework</a></li>
+        </ul>
+      </div>
+      <div class="space-y-3">
+        <div class="font-bold text-white uppercase text-[10px] tracking-wider">Connect</div>
+        <div class="flex gap-5 text-base text-gray-400 pt-1">
+          <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container mx-auto px-8 mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-600 font-light">
+      <div>&copy; 2026 VJ Studio Inc. Structural Layer Integrity Secured.</div>
+      <div class="flex gap-6"><span>Terms of Core Sprints</span> <span>SLA Mapping Architecture</span></div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+
+      window.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      // PREMIUM CUSTOM MAGNETIC CURSOR PHYSICS
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorRing = document.getElementById("cursor-ring");
+
+      gsap.to({}, {
+        duration: 0.01,
+        repeat: -1,
+        onRepeat: () => {
+          gsap.set(cursorDot, { x: mouseX, y: mouseY });
+        }
+      });
+
+      gsap.to({}, {
+        duration: 0.016,
+        repeat: -1,
+        onRepeat: () => {
+          gsap.to(cursorRing, {
+            x: mouseX,
+            y: mouseY,
+            duration: 0.25,
+            ease: "power2.out"
+          });
+        }
+      });
+
+      const interactiveElements = document.querySelectorAll("a, button, select, textarea, input");
+      interactiveElements.forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          gsap.to(cursorRing, {
+            width: 70,
+            height: 70,
+            backgroundColor: "rgba(3, 3, 3, 0.05)",
+            borderColor: "rgba(3, 3, 3, 1)",
+            duration: 0.3
+          });
+          gsap.to(cursorDot, { scale: 1.5, backgroundColor: "#fff", duration: 0.3 });
+        });
+
+        el.addEventListener("mouseleave", () => {
+          gsap.to(cursorRing, {
+            width: 40,
+            height: 40,
+            backgroundColor: "transparent",
+            borderColor: "rgba(3, 3, 3, 0.4)",
+            duration: 0.3
+          });
+          gsap.to(cursorDot, { scale: 1, backgroundColor: "#030303", duration: 0.3 });
+        });
+      });
+
+      // MAGNETIC NAVIGATION ACTIONS MAPPED
+      const magnetics = document.querySelectorAll("[data-magnetic]");
+      magnetics.forEach((mag) => {
+        mag.addEventListener("mousemove", (e) => {
+          const bound = mag.getBoundingClientRect();
+          const mx = e.clientX - bound.left - bound.width / 2;
+          const my = e.clientY - bound.top - bound.height / 2;
+          gsap.to(mag, { x: mx * 0.35, y: my * 0.35, duration: 0.3, ease: "power2.out" });
+        });
+        mag.addEventListener("mouseleave", () => {
+          gsap.to(mag, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+        });
+      });
+
+      // SMOOTH LOGO MARQUEE SCROLL SCRUB
+      gsap.fromTo(".scroll-scrub-fade",
+        { opacity: 0.3, scaleX: 0.96 },
+        {
+          opacity: 1,
+          scaleX: 1,
+          scrollTrigger: {
+            trigger: ".scroll-scrub-fade",
+            start: "top 95%",
+            end: "bottom 60%",
+            scrub: true
+          }
+        }
+      );
+
+      // DYNAMIC METRIC INCREMENTOR ON SCROLL
+      gsap.utils.toArray(".scroll-lift").forEach((box) => {
+        const targetNum = box.querySelector("[data-count]");
+        if (targetNum) {
+          const limit = parseInt(targetNum.getAttribute("data-count"), 10);
+          gsap.fromTo(box,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: box,
+                start: "top 88%",
+                onEnter: () => {
+                  let countObj = { val: 0 };
+                  gsap.to(countObj, {
+                    val: limit,
+                    duration: 2,
+                    ease: "power2.out",
+                    onUpdate: () => { targetNum.innerText = Math.floor(countObj.val) + (limit === 5 ? "+" : "%"); }
+                  });
+                }
+              }
+            }
+          );
+        }
+      });
+
+      // STAGGERED 3D STACK FOR SERVICES
+      gsap.fromTo("#service-grid > *",
+        { opacity: 0, y: 50, rotationX: -10 },
+        {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          stagger: 0.12,
+          duration: 1,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: "#service-grid",
+            start: "top 82%"
+          }
+        }
+      );
+
+      // SLIDE PARALLAX PROJECTS
+      gsap.utils.toArray(".project-card").forEach((card, i) => {
+        gsap.fromTo(card,
+          { opacity: 0, x: i % 2 === 0 ? -60 : 60 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%"
+            }
+          }
+        );
+      });
+    });
+  </script>
+</body>
+
+</html>
